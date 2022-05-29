@@ -1,7 +1,5 @@
 import React from 'react'
 
 export default function IndexRoute() {
-  return (
-    <div>IndexRoute</div>
-  )
+  return <div>Index Route</div>
 }

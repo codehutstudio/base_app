@@ -1,9 +1,11 @@
+import { useTheme } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import App from './App'
 import { appRoutesAtom } from './AppState'
 import { GeneralObject } from './AppTypes'
+import Loading from './Components/Loading'
 import { first, last, pipe } from './Utils'
 
 const publicPages = import.meta.globEager(
@@ -11,6 +13,7 @@ const publicPages = import.meta.globEager(
 )
 
 export default function AppRouting() {
+    const theme = useTheme()
     const setAppRoutes = useSetRecoilState(appRoutesAtom)
     const [routeConfigs, setRouteConfigs] = useState<GeneralObject | null>(null)
     useEffect(() => {
@@ -20,7 +23,8 @@ export default function AppRouting() {
             setRouteConfigs(routeConfigs)
         }
     }, [])
-    if (routeConfigs === null) return null
+    
+    if (routeConfigs === null) return <Loading type="bars" color={theme.palette.primary.main}/>
     return (
             <Routes>
                 <Route path="/" element={<App />}>
