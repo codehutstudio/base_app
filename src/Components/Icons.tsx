@@ -17,12 +17,24 @@ import {ArrowBack, Error, Warning} from '@mui/icons-material';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import StorageIcon from '@mui/icons-material/Storage';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 
 const Icons = forwardRef((props: any, ref: any): any => {
     const {icon, ...rest} = props
   switch (icon) {
+    case 'noData':
+      return createElement(DoNotDisturbIcon, {...rest, ref});
+    case 'doubleLeftArrow':
+      return createElement(KeyboardDoubleArrowLeftIcon, {...rest, ref});
+    case 'plus':
+      return createElement(AddOutlinedIcon, {...rest, ref});
     case 'user':
       return createElement(PersonIcon, {...rest, ref});
+    case 'userCircle':
+      return createElement(AccountCircleOutlinedIcon, {...rest, ref});
     case 'database':
       return createElement(StorageIcon, {...rest, ref});
     case 'group':
