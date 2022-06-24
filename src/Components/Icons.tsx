@@ -21,10 +21,13 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Icons = forwardRef((props: any, ref: any): any => {
     const {icon, ...rest} = props
   switch (icon) {
+    case 'cart':
+      return createElement(ShoppingCartIcon, {...rest, ref});
     case 'noData':
       return createElement(DoNotDisturbIcon, {...rest, ref});
     case 'doubleLeftArrow':
